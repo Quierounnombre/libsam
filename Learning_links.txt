@@ -1,0 +1,22 @@
+https://gpfault.net/posts/asm-tut-0.txt.html (MORE WINDOWS FOCUSED)
+
+https://github.com/0xAX/asm
+
+https://chromium.googlesource.com/chromiumos/docs/+/master/constants/syscalls.md
+
+https://www.tutorialspoint.com/assembly_programming/assembly_conditions.htm
+
+je = if (a == b)
+jne = if (a != b)
+
+rax - store temp_values
+rdi, rsi, rdx - store the first/second/third params of funtions
+aslo
+r10, r8, and r9 - for the fourth/fifth/six params of funtions
+
+"DATA TYPES OF ASM"
+
+byte = 8 bits
+word = 2 byte
+doubleword = 2 word
+quadword = 4 word
