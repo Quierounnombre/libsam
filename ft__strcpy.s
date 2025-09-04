@@ -3,13 +3,13 @@ global	ft__strcpy
 
 section .text
 	ft__strcpy:
-		mov			rax, rsi
+		mov			rax, rdi
 	loop:
-		mov			al, [rsi]
-		mov			[rdi], al
+		mov			r14b , [rsi]
+		mov			[rdi], r14b
 		inc 		rsi
 		inc 		rdi
-		test		al, al
+		test		r14b, r14b
 		jne	loop 
 		ret
 
