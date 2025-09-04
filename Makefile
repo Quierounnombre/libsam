@@ -30,6 +30,7 @@ OBJ_DIR = obj
 LIB_FILES = ft__strlen.s \
 			ft__strcpy.s \
 			ft__strcmp.s \
+			ft__write.s \
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(patsubst %.s, %.o, $(LIB_FILES)))
 
@@ -39,7 +40,6 @@ $(OBJ_DIR)/%.o: %.s
 
 $(NAME): $(OBJS)
 	$(AR) $(AR_FLAGS) $(OBJS)
-	@gcc -Wall -Wextra -Werror main.c $(NAME)
 	@echo -e "$(LCYAN)\n$(NAME) libreria compilada\n$(RESET)"
 
 all: $(NAME)
@@ -56,5 +56,8 @@ re: fclean all
 
 do_clean: all clean
 
-.PHONY: all clean fclean re do_clean
+tester:
+	@gcc -Wall -Wextra -Werror main.c $(NAME)
+
+.PHONY: all clean fclean re do_clean tester
 .SILENT:
