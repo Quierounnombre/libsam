@@ -31,6 +31,7 @@ LIB_FILES = ft__strlen.s \
 			ft__strcpy.s \
 			ft__strcmp.s \
 			ft__read.s \
+			ft__strdup.s \
 			ft__write.s \
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(patsubst %.s, %.o, $(LIB_FILES)))

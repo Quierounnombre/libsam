@@ -10,6 +10,7 @@ char	*ft__strcpy(const char *dst, const char *src);
 int		ft__strcmp(const char *s1, const char *s2);
 int		ft__write(int fd, const char *s, size_t count);
 int		ft__read(int fd, char *buf, size_t count);
+char	*ft__strdup(const char *s);
 
 int	main(void)
 {
@@ -90,4 +91,15 @@ int	main(void)
 		i_ret = ft__read(fd, buf, 100);
 		printf("ft__read %d && errno %d\n", i_ret, errno);
 	}	
+	printf("\n--------------------\n\n");
+	{
+		char	*s;
+		
+		s = strdup(msg);
+		printf("____strdup og %s = dup %s\n", msg, s);
+		free(s);
+		s = ft__strdup(msg);
+		printf("ft__strdup og %s = dup %s\n", msg, s);
+		free(s);
+	}
 }
