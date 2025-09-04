@@ -2,16 +2,19 @@
 #include "stdlib.h"
 #include "unistd.h"
 #include <string.h>
+#include <fcntl.h>
 
 size_t	ft__strlen(const char *s);
 char	*ft__strcpy(const char *dst, const char *src);
 int		ft__strcmp(const char *s1, const char *s2);
 int		ft__write(int fd, const char *s, size_t count);
+int		ft__read(int fd, char *buf, size_t count);
 
 int	main(void)
 {
 	char	msg[12] = "hello_world";
 	char	cpy[12];
+	char	buf[500];
 	char	*ret;
 	int		i_ret;
 
@@ -41,4 +44,29 @@ int	main(void)
 	printf("   write____ = %d\n", i_ret);
 	i_ret = ft__write(1, msg, 2);
 	printf("   ft__write = %d\n", i_ret);
+	printf("\n--------------------\n\n");
+	memset(buf, 0, 500);
+	printf("____read(100) = \n");
+	i_ret =	read(0, buf, 100);
+	printf("result = %s\nBytes = %d\n", buf, i_ret);
+	memset(buf, 0, 500);
+	printf("ft__read(100) = \n");
+	i_ret = ft__read(0, buf, 100);
+	printf("result = %s\nBytes = %d\n", buf, i_ret);
+	{
+		int		fd;
+		
+		fd = open("Learning_links.txt", O_RDONLY);
+		memset(buf, 0, 500);
+		printf("____read(100) = \n");
+		i_ret =	read(fd, buf, 100);
+		printf("result = %s\nBytes = %d\n", buf, i_ret);
+		close(fd);
+		fd = open("Learning_links.txt", O_RDONLY);
+		memset(buf, 0, 500);
+		printf("ft__read(100) = \n");
+		i_ret = ft__read(fd, buf, 100);
+		printf("result = %s\nBytes = %d\n", buf, i_ret);
+		close(fd);
+	}	
 }
