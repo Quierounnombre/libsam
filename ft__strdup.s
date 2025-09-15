@@ -10,7 +10,7 @@ section	.text
 		call	ft__strlen
 		inc					rax
 		mov					rdi, rax
-		call	malloc	
+		call	malloc 		wrt ..plt
 		test				rax, rax
 		jz		error	
 		mov					rdi, rax

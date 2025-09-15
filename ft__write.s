@@ -12,7 +12,7 @@ section	.text
 
 	error:
 		mov				r15, rax
-		call			__errno_location
+		call			__errno_location wrt ..plt
 		neg				r15
 		mov				[rax], r15
 		mov				rax, -1
